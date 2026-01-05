@@ -11,6 +11,8 @@ import {
   File,
   Package,
 } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faApple, faAndroid } from "@fortawesome/free-brands-svg-icons";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useTransition } from "@/context/TransitionContext";
@@ -112,9 +114,9 @@ export default function DownloadPage() {
                   animate={{ y: 0, opacity: 1 }}
                   className="p-12 rounded-[4rem] bg-white/10 backdrop-blur-xl border border-white/20 mb-12"
                 >
-                  <Apple
-                    size={120}
-                    className="text-white drop-shadow-2xl"
+                  <FontAwesomeIcon
+                    icon={faApple}
+                    className="text-white drop-shadow-2xl text-[120px] h-[120px] w-[120px]"
                   />
                 </motion.div>
                 <h1 className="text-6xl md:text-8xl font-black italic tracking-tighter uppercase mb-6 drop-shadow-lg text-white">
@@ -133,7 +135,10 @@ export default function DownloadPage() {
                 <header className="mb-20">
                   <div className="flex items-center gap-6 mb-8">
                     <div className="p-6 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20">
-                      <Smartphone size={48} />
+                      <FontAwesomeIcon
+                        icon={faAndroid}
+                        className="text-white h-12 w-12"
+                      />
                     </div>
                     <div>
                       <h1 className="text-6xl md:text-8xl font-black italic tracking-tighter uppercase drop-shadow-lg">

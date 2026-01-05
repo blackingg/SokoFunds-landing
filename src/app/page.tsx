@@ -80,17 +80,17 @@ export default function Home() {
             {[
               {
                 title: "Home",
-                img: "/HOME.png",
+                img: "/home.png",
                 desc: "Real-time balance and transaction history at your fingertips.",
               },
               {
                 title: "Cards",
-                img: "/CARDS.png",
+                img: "/cards.png",
                 desc: "Securely manage your physical and virtual cards in one place.",
               },
               {
                 title: "Send",
-                img: "/SEND.png",
+                img: "/send.png",
                 desc: "Instant global money transfers with Zero commission fees.",
               },
             ].map((item, i) => (
