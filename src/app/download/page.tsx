@@ -108,61 +108,61 @@ export default function DownloadPage() {
             </button>
 
             {platform === "ios" ? (
-              <div className="flex flex-col items-center text-center py-20">
+              <div className="flex flex-col items-center text-center py-10 md:py-20">
                 <motion.div
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  className="p-12 rounded-[4rem] bg-white/10 backdrop-blur-xl border border-white/20 mb-12"
+                  className="p-8 md:p-12 rounded-[3rem] md:rounded-[4rem] bg-white/10 backdrop-blur-xl border border-white/20 mb-8 md:mb-12"
                 >
                   <FontAwesomeIcon
                     icon={faApple}
-                    className="text-white drop-shadow-2xl text-[120px] h-[120px] w-[120px]"
+                    className="text-white drop-shadow-2xl text-[80px] md:text-[120px] h-20 w-20 md:h-30 md:w-30"
                   />
                 </motion.div>
-                <h1 className="text-6xl md:text-8xl font-black italic tracking-tighter uppercase mb-6 drop-shadow-lg text-white">
+                <h1 className="text-5xl md:text-8xl font-black italic tracking-tighter uppercase mb-4 md:mb-6 drop-shadow-lg text-white">
                   iOS <span className="text-white/40">App</span>
                 </h1>
-                <p className="text-2xl font-bold text-white/60 mb-12">
+                <p className="text-xl md:text-2xl font-bold text-white/60 mb-8 md:mb-12 max-w-lg mx-auto">
                   Don't own a Mac yet, and that yearly sub goes crazy. So
                   Checkout the Android side.
                 </p>
-                <div className="px-8 py-4 rounded-full bg-white/5 border border-white/10 font-black uppercase tracking-[0.3em] text-xs text-white">
+                <div className="px-6 py-3 md:px-8 md:py-4 rounded-full bg-white/5 border border-white/10 font-black uppercase tracking-[0.3em] text-[10px] md:text-xs text-white">
                   Chao...
                 </div>
               </div>
             ) : (
               <div className="text-white">
-                <header className="mb-20">
-                  <div className="flex items-center gap-6 mb-8">
-                    <div className="p-6 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20">
+                <header className="mb-12 md:mb-20">
+                  <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8 mb-8">
+                    <div className="p-4 md:p-6 rounded-2xl md:rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20">
                       <FontAwesomeIcon
                         icon={faAndroid}
-                        className="text-white h-12 w-12"
+                        className="text-white h-8 w-8 md:h-12 md:w-12"
                       />
                     </div>
                     <div>
-                      <h1 className="text-6xl md:text-8xl font-black italic tracking-tighter uppercase drop-shadow-lg">
+                      <h1 className="text-5xl md:text-8xl font-black italic tracking-tighter uppercase drop-shadow-lg leading-[0.9]">
                         Releases
                       </h1>
-                      <div className="flex items-center gap-2 text-white/50 font-black uppercase tracking-widest text-xs mt-2">
+                      <div className="flex items-center gap-2 text-white/50 font-black uppercase tracking-widest text-[10px] md:text-xs mt-3 md:mt-4">
                         Android Development <ExternalLink size={14} />
                       </div>
                     </div>
                   </div>
-                  <p className="text-2xl text-white/60 font-medium max-w-2xl leading-relaxed">
+                  <p className="text-lg md:text-2xl text-white/60 font-medium max-w-2xl leading-relaxed">
                     Download the latest version of SokoFunds for Android. Each
                     update brings new features and security improvements.
                   </p>
                 </header>
 
-                <section className="space-y-8">
+                <section className="space-y-6 md:space-y-8">
                   {loading ? (
                     <div className="flex flex-col items-center gap-6 py-32">
                       <Loader2
                         size={48}
                         className="animate-spin text-white/50"
                       />
-                      <p className="font-black uppercase tracking-[0.2em] text-white/30 text-sm">
+                      <p className="font-black uppercase tracking-[0.2em] text-white/30 text-xs md:text-sm">
                         Synchronizing with GitHub...
                       </p>
                     </div>
@@ -173,15 +173,15 @@ export default function DownloadPage() {
                         initial={{ x: -20, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ delay: idx * 0.1 }}
-                        className="group bg-white/5 hover:bg-white/10 backdrop-blur-xl p-10 rounded-[3rem] border border-white/10 hover:border-white/30 transition-all"
+                        className="group bg-white/5 hover:bg-white/10 backdrop-blur-xl p-6 md:p-10 rounded-[2rem] md:rounded-[3rem] border border-white/10 hover:border-white/30 transition-all"
                       >
                         <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
-                          <div>
+                          <div className="w-full">
                             <div className="flex items-center gap-3 mb-4">
-                              <span className="px-4 py-1.5 rounded-full bg-white text-[#007AFF] text-[10px] font-black uppercase tracking-widest shadow-lg">
+                              <span className="px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-white text-[#007AFF] text-[10px] font-black uppercase tracking-widest shadow-lg">
                                 {release.tag_name}
                               </span>
-                              <span className="text-white/40 text-xs font-bold uppercase italic tracking-wider">
+                              <span className="text-white/40 text-[10px] md:text-xs font-bold uppercase italic tracking-wider">
                                 {new Date(
                                   release.published_at
                                 ).toLocaleDateString(undefined, {
@@ -191,7 +191,7 @@ export default function DownloadPage() {
                                 })}
                               </span>
                             </div>
-                            <h3 className="text-3xl font-black italic uppercase tracking-tight mb-4">
+                            <h3 className="text-2xl md:text-3xl font-black italic uppercase tracking-tight mb-4 break-words">
                               {release.name || release.tag_name}
                             </h3>
                             {release.body && (
@@ -199,12 +199,12 @@ export default function DownloadPage() {
                                 {release.body}
                               </p>
                             )}
-                            <div className="flex flex-wrap gap-4">
+                            <div className="flex flex-wrap gap-3 md:gap-4">
                               {release.assets.map((asset) => (
                                 <a
                                   key={asset.name}
                                   href={asset.browser_download_url}
-                                  className="inline-flex items-center gap-4 px-8 py-5 rounded-4xl bg-white text-[#007AFF] font-black uppercase tracking-widest text-sm shadow-[0_15px_30px_rgba(0,0,0,0.1)] hover:scale-105 active:scale-95 transition-all"
+                                  className="inline-flex items-center gap-3 md:gap-4 px-6 md:px-8 py-4 md:py-5 rounded-3xl md:rounded-4xl bg-white text-[#007AFF] font-black uppercase tracking-widest text-[10px] md:text-sm shadow-[0_15px_30px_rgba(0,0,0,0.1)] hover:scale-105 active:scale-95 transition-all w-full md:w-auto justify-center md:justify-start"
                                 >
                                   {getFileIcon(asset.name)}
                                   {getFileLabel(asset.name)}
@@ -216,8 +216,8 @@ export default function DownloadPage() {
                       </motion.div>
                     ))
                   ) : (
-                    <div className="text-center py-32 bg-black/5 rounded-[4rem] border-2 border-dashed border-white/10">
-                      <p className="text-white/30 font-black italic uppercase tracking-[0.2em]">
+                    <div className="text-center py-20 md:py-32 bg-black/5 rounded-[3rem] md:rounded-[4rem] border-2 border-dashed border-white/10">
+                      <p className="text-white/30 font-black italic uppercase tracking-[0.2em] text-sm">
                         No official releases found.
                       </p>
                     </div>

@@ -45,16 +45,16 @@ export default function DeviceSelector() {
         </p>
       </div>
 
-      <div className="flex flex-wrap justify-center gap-12 max-w-4xl w-full">
+      <div className="flex flex-wrap justify-center gap-6 md:gap-12 max-w-4xl w-full">
         {devices.map((device) => (
           <button
             key={device.id}
             onClick={(e) => handleSelect(device, e)}
-            className={`glass group relative p-12 rounded-[4rem] flex-1 min-w-75 border-black/5 transition-all cursor-pointer bg-white/50`}
+            className={`glass group relative p-8 md:p-12 rounded-[3rem] md:rounded-[4rem] flex-1 min-w-[280px] border-black/5 transition-all cursor-pointer bg-white/50`}
           >
-            <div className="flex flex-col items-center gap-8">
+            <div className="flex flex-col items-center gap-6 md:gap-8">
               <div
-                className="p-10 rounded-[2.5rem] transition-all duration-500 group-hover:scale-110 shadow-xl shadow-transparent group-hover:shadow-[#007AFF]/10"
+                className="p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] transition-all duration-500 group-hover:scale-110 shadow-xl shadow-transparent group-hover:shadow-[#007AFF]/10"
                 style={{
                   backgroundColor: `${device.color}10`,
                   color: device.color,
@@ -62,15 +62,15 @@ export default function DeviceSelector() {
               >
                 <FontAwesomeIcon
                   icon={device.icon}
-                  size="4x"
+                  className="text-6xl md:text-7xl"
                 />
               </div>
 
               <div className="text-center">
-                <span className="block font-black text-4xl text-black italic uppercase tracking-tighter mb-2">
+                <span className="block font-black text-3xl md:text-4xl text-black italic uppercase tracking-tighter mb-2">
                   {device.name}
                 </span>
-                <div className="flex items-center justify-center gap-2 text-black/30 text-sm font-bold uppercase tracking-[0.2em] group-hover:text-[#007AFF] transition-colors">
+                <div className="flex items-center justify-center gap-2 text-black/30 text-xs md:text-sm font-bold uppercase tracking-[0.2em] group-hover:text-[#007AFF] transition-colors">
                   {device.tagline}{" "}
                   <ArrowRight
                     size={16}
