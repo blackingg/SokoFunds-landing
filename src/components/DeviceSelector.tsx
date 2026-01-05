@@ -50,11 +50,11 @@ export default function DeviceSelector() {
           <button
             key={device.id}
             onClick={(e) => handleSelect(device, e)}
-            className={`glass group relative p-8 md:p-12 rounded-[3rem] md:rounded-[4rem] flex-1 min-w-[280px] border-black/5 transition-all cursor-pointer bg-white/50`}
+            className={`glass group relative p-8 md:p-12 rounded-[3rem] md:rounded-[4rem] flex-1 min-w-70 border-black/5 transition-all cursor-pointer bg-white/50`}
           >
             <div className="flex flex-col items-center gap-6 md:gap-8">
               <div
-                className="p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] transition-all duration-500 group-hover:scale-110 shadow-xl shadow-transparent group-hover:shadow-[#007AFF]/10"
+                className="p-8 md:p-10 rounded-4xl md:rounded-[2.5rem] transition-all duration-500 group-hover:scale-110 shadow-xl shadow-transparent group-hover:shadow-[#007AFF]/10"
                 style={{
                   backgroundColor: `${device.color}10`,
                   color: device.color,
@@ -79,7 +79,6 @@ export default function DeviceSelector() {
                 </div>
               </div>
             </div>
-
           </button>
         ))}
       </div>
