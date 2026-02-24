@@ -27,15 +27,24 @@ const devices = [
 
 export default function DeviceSelector() {
   const router = useRouter();
-  const { setTransition } = useTransition();
+  const { startTransition } = useTransition();
 
   const handleSelect = (device: any, e: React.MouseEvent) => {
-    setTransition(e.clientX, e.clientY, device.id);
-    router.push("/download");
+    startTransition(e.clientX, e.clientY, device.id);
+    // Small delay so context state is committed before Next.js navigates
+    setTimeout(() => {
+      router.push("/download");
+    }, 50);
   };
 
   return (
-    <div className="flex flex-col items-center gap-16 py-12 px-4 relative">
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+      className="flex flex-col items-center gap-16 py-12 px-4 relative"
+    >
       <div className="text-center">
         <h2 className="text-5xl md:text-7xl font-black text-black uppercase italic tracking-tighter mb-4">
           Get Started
@@ -46,9 +55,19 @@ export default function DeviceSelector() {
       </div>
 
       <div className="flex flex-wrap justify-center gap-6 md:gap-12 max-w-4xl w-full">
-        {devices.map((device) => (
-          <button
+        {devices.map((device, i) => (
+          <motion.button
             key={device.id}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              delay: i * 0.15,
+              duration: 0.6,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            whileHover={{ y: -6, transition: { duration: 0.3 } }}
+            whileTap={{ scale: 0.97 }}
             onClick={(e) => handleSelect(device, e)}
             className={`glass group relative p-8 md:p-12 rounded-[3rem] md:rounded-[4rem] flex-1 min-w-70 border-black/5 transition-all cursor-pointer bg-white/50`}
           >
@@ -79,9 +98,9 @@ export default function DeviceSelector() {
                 </div>
               </div>
             </div>
-          </button>
+          </motion.button>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }
