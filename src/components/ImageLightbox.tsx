@@ -275,7 +275,7 @@ export default function ImageLightbox({
                       height: 8,
                       backgroundColor:
                         idx === currentIndex
-                          ? "rgba(0, 122, 255, 1)"
+                          ? "#007AFF"
                           : "rgba(255, 255, 255, 0.25)",
                     }}
                     transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
